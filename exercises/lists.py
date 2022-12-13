@@ -5,14 +5,14 @@ class ListExercise:
         max_list = 0
         i = 0
         for index in input_list:
-            i += 1
-            if index > max_list and index > 0:
+            if index > max_list:
                 max_list = index
-            elif index < 0:
-                min_list = index
-                new_list.insert(i, min_list)
-                continue
-            new_list.insert(i, max_list)
+        for index in input_list:
+            i += 1
+            if index > 0:
+                new_list.insert(i, max_list)
+            else:
+                new_list.insert(i, index)
         return new_list
         pass
 
