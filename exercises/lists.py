@@ -4,15 +4,15 @@ class ListExercise:
         new_list = []
         max_list = 0
         i = 0
-        for index in input_list:
-            if index > max_list:
-                max_list = index
-        for index in input_list:
+        for element in input_list:
+            if element > max_list:
+                max_list = element
+        for element in input_list:
             i += 1
-            if index > 0:
+            if element > 0:
                 new_list.insert(i, max_list)
             else:
-                new_list.insert(i, index)
+                new_list.insert(i, element)
         return new_list
         pass
 
