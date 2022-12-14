@@ -1,21 +1,33 @@
 class ListExercise:
     @staticmethod
     def replace(input_list: list[int]) -> list[int]:
-        """
-        Заменить все положительные элементы целочисленного списка на максимальное значение
-        элементов списка.
-        :param input_list: Исходный список
-        :return: Список с замененными элементами
-        """
+        new_list = []
+        max_list = 0
+        i = 0
+        for element in input_list:
+            if element > max_list:
+                max_list = element
+        for element in input_list:
+            i += 1
+            if element > 0:
+                new_list.insert(i, max_list)
+            else:
+                new_list.insert(i, element)
+        return new_list
         pass
 
     @staticmethod
     def search(input_list: list[int], query: int) -> int:
-        """
-        Реализовать двоичный поиск
-        Функция должна возвращать индекс элемента
-        :param input_list: Исходный список
-        :param query: Искомый элемент
-        :return: Номер элемента
-        """
+        def recursion(start, end):
+            if start > end:
+                return -1
+            mid = (start + end) // 2
+            if query == input_list[mid]:
+                return mid
+            if query < input_list[mid]:
+                return recursion(start, mid - 1)
+            else:
+                return recursion(mid + 1, end)
+
+        return recursion(0, len(input_list) - 1)
         pass
